@@ -1,0 +1,3 @@
+// An index greater than the vector length is also invalid.
+// Run with or without -ntc: both modes must report the same error.
+print ([10] @ [20] @ [30]) # 5 // Dynamic error: Index out of bounds

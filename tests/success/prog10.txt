@@ -1,0 +1,23 @@
+// All assertions must succeed; no output is expected.
+// Reversing a singleton preserves its only element.
+assert rev [7] == [7];
+
+// Reverse every element, preserve the original, and recover it with two reversals.
+var xs = [10] @ [20] @ [30] @ [40];
+var reversed = rev xs;
+assert reversed == [40] @ [30] @ [20] @ [10];
+assert xs == [10] @ [20] @ [30] @ [40];
+assert rev rev xs == xs;
+
+// The element type is preserved for boolean vectors and vectors of pairs.
+assert rev ([true] @ [true] @ [false]) == [false] @ [true] @ [true];
+assert rev ([1, true] @ [2, false]) == [2, false] @ [1, true];
+
+// Reverse only the outer vector; the elements within each row keep their order.
+var rows = [[1] @ [2]] @ [[3] @ [4]] @ [[5] @ [6]];
+assert rev rows == [[5] @ [6]] @ [[3] @ [4]] @ [[1] @ [2]];
+assert rows == [[1] @ [2]] @ [[3] @ [4]] @ [[5] @ [6]];
+
+// The prefix operator binds more tightly than indexed access.
+assert rev xs # 0 == 40;
+assert rev rows # 0 == [5] @ [6]

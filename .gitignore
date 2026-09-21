@@ -1,0 +1,20 @@
+# Java build output
+/build/
+/out/
+*.class
+
+# .NET build output
+/semantics/bin/
+/semantics/obj/
+*.user
+*.suo
+
+# Local IntelliJ IDEA configuration
+.idea/
+*.iml
+
+# Operating-system metadata
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini

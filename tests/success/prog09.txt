@@ -1,0 +1,26 @@
+// All assertions must succeed; no output is expected.
+// At uses zero-based indexing, including the first and last valid positions.
+var xs = [10] @ [20] @ [30];
+assert [42]#0 == 42;
+assert xs # 0 == 10;
+assert xs # 1 == 20;
+assert xs # 2 == 30;
+var index = 1;
+assert xs # index == 20;
+assert xs # (index + 1) == 30;
+
+// Indexing binds more tightly than addition and concatenation.
+assert xs # 0 + 1 == 11;
+assert [1] @ [[2]] # 0 == [1] @ [2];
+
+// The selected value retains its type: boolean, pair, or nested vector.
+assert ([false] @ [true]) # 1;
+assert ([1, true] @ [2, false]) # 1 == (2, false);
+assert fst (([1, true] @ [2, false]) # 0) == 1;
+var rows = [[1] @ [2]] @ [[3] @ [4]];
+assert rows # 1 == [3] @ [4];
+assert rows # 1 # 0 == 3;
+
+// Access does not modify the source vector.
+assert xs == [10] @ [20] @ [30];
+assert rows == [[1] @ [2]] @ [[3] @ [4]]

@@ -1,0 +1,2 @@
+// At requires a vector as its left operand.
+print 42 # 0 // Static error: Found  INT, expected VectorType

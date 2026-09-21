@@ -1,0 +1,2 @@
+// Without typechecking, At still rejects a non-integer index.
+print [42] # true // Dynamic error: Found BoolValue, expected IntValue

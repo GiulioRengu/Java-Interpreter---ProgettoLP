@@ -1,0 +1,2 @@
+// Without typechecking, At still rejects a non-vector operand.
+print 42 # 0 // Dynamic error: Found IntValue, expected VectorValue

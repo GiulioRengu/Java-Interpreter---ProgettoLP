@@ -203,7 +203,7 @@ To run these demonstrations, install the **.NET 8 SDK** and execute:
 dotnet run --project semantics/finalProject.fsproj
 ```
 
-.NET is optional and is not needed to build or run the Java interpreter.
+.NET is optional and is not needed to build or run the Java interpreter. 
 
 ## Repository hygiene
 
